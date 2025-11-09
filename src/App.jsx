@@ -1,28 +1,30 @@
-import { useState } from 'react'
+import HeroHeader from './components/HeroHeader';
+import FallingApple from './components/FallingApple';
+import LTribute from './components/LTribute';
+import FooterCoda from './components/FooterCoda';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <div className="min-h-screen w-full bg-gradient-to-b from-zinc-950 via-black to-zinc-950 text-white">
+      {/* Subtle vignette */}
+      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06),transparent_60%)]" />
 
-export default App
+      <HeroHeader />
+
+      {/* Sky area with falling apple and Ryuk catcher */}
+      <section className="relative">
+        {/* Cloudy bands */}
+        <div className="absolute inset-0 pointer-events-none opacity-30">
+          <div className="absolute -top-16 left-0 right-0 h-40 bg-gradient-to-b from-zinc-800/30 to-transparent blur-2xl" />
+          <div className="absolute top-20 left-0 right-0 h-32 bg-gradient-to-b from-zinc-700/20 to-transparent blur-3xl" />
+        </div>
+        <div className="relative z-10">
+          <FallingApple />
+        </div>
+      </section>
+
+      <LTribute />
+      <FooterCoda />
+    </div>
+  );
+}
